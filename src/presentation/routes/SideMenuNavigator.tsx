@@ -8,6 +8,8 @@ import {
 import { StackNavigator } from './StackNavigator';
 import { ProfileScreen } from '../screens/profile/ProfileScreen';
 import { globalColors, globalStyles } from '../theme/theme';
+import { BottomTabNavigator } from './BottomTabsNavigator';
+import { Ionicon } from '../components/shared/Ionicon';
 
 const Drawer = createDrawerNavigator();
 
@@ -33,8 +35,9 @@ export const SideMenuNavigator = () => {
     }
    } }
   >
-   <Drawer.Screen name="StrackNavigator" component={ StackNavigator } />
-   <Drawer.Screen name="Profile" component={ ProfileScreen } />
+   {/* <Drawer.Screen name="StrackNavigator" component={ StackNavigator } /> */ }
+   <Drawer.Screen options={ { drawerIcon: ( { color } ) => ( <Ionicon name='arrow-forward-outline' color={ color } />)}} name="Tabs" component={ BottomTabNavigator } />
+   <Drawer.Screen options={ { drawerIcon: ( { color } ) => ( <Ionicon name='person-circle-outline' color={ color } />)}} name="Profile" component={ ProfileScreen } />
   </Drawer.Navigator>
  );
 };
